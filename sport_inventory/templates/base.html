@@ -23,15 +23,21 @@
             <a href="{{ url_for('site.home') }}">
                 <li>Soccer Homepage</li>
             </a>
+            {% if current_user.is_authenticated %}
             <a href="{{ url_for('site.profile') }}">
                 <li>Champions League</li>
             </a>
+            <a href="{{ url_for('auth.logout') }}">
+                <li>Log Out</li>
+            </a>
+            {% else %}
             <a href="{{ url_for('auth.signin') }}">
                 <li>Sign in</li>
             </a>
             <a href="{{ url_for('auth.signup') }}">
                 <li>Sign up</li>
             </a>
+            {% endif %}
         </ul>
     </div>
     </nav>
